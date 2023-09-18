@@ -9,6 +9,8 @@ COPY package*.json ./
 
 # run npm install in our local machine
 RUN npm install
+RUN npm install express --save
+RUN npm install mysql --save
 
 # copy the generated modules and all other files to the container
 COPY . .

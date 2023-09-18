@@ -14,28 +14,28 @@ services:
     ports:
       - "8080:8080"
   
-  pnginx:
-    restart: always
+  nginx:
     build:
       context: ./nginx
+    container_name: nginx
     ports:
       - "80:80"
     networks:
       - node-network
 
-  # db:
-  #   image: mysql:5.7
-  #   command: --innodb-use-native-aio=0
-  #   container_name: db
-  #   restart: always
-  #   tty: true
-  #   volumes:
-  #     - ./mysql:/var/lib/mysql #salvar na pasta mysql
-  #   environment:
-  #     - MYSQL_DATABASE=nodedb
-  #     - MYSQL_ROOT_PASSWORD=root
-  #   networks:
-  #     - node-network
+  db:
+    image: mysql:5.7
+    command: --innodb-use-native-aio=0
+    container_name: db
+    restart: always
+    tty: true
+    volumes:
+      - ./mysql:/var/lib/mysql #salvar na pasta mysql
+    environment:
+      - MYSQL_DATABASE=nodedb
+      - MYSQL_ROOT_PASSWORD=root
+    networks:
+      - node-network
 
 networks:
   node-network:
