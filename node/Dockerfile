@@ -26,4 +26,4 @@ COPY . .
 EXPOSE 8080
 
 # the command that starts our app
-CMD ["node", "index.js"]
+#CMD ["node", "index.js"]
